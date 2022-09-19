@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+    <title> Cryptocurrency Wallet Service </title>
+</head>
+<body>
+    <form id = "loginForm">
+        <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+        <h3 id = "pageHeader"> Login Page </h3>
+        <label id = "labelCustomer">Customer ID
+            <input type="text" required class="validated-field" id="customerId" placeholder="customer ID" data-tip="Type customer ID." autofocus>
+        </label>
+        <div id = "createDiv">
+            <input type="submit" id="createButton" value="Login">
+        </div>
+    </form>
+    <label id = "labelMessage"></label>
+</body>
+</html>

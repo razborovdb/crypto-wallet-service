@@ -1,0 +1,44 @@
+#homeForm {
+  height: 600px;
+  width: 600px;
+  background-color: powderblue;
+  border: 2px solid blue;
+  border-radius: 4px;
+}
+
+#formHeader {
+  background-color: powderblue;
+  color: black;
+  padding-top: 0px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#pageHeader {
+  background-color: powderblue;
+  color: black;
+  padding-top: 0px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#customerDiv {
+  padding-left: 10px;
+}
+
+#walletDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#walletDescriptionDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#buttonDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+

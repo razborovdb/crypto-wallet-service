@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="createcryptowalletpage.css">
+    <script src="createcryptowalletpage.js" defer></script>
+    <title> Cryptocurrency Wallet Service </title>
+</head>
+<body>
+<form id = "homeForm">
+    <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+    <h3 id = "pageHeader"> Create Cryptocurrency Wallet Page </h3>
+    <div id = "customerDiv">
+        <label id = "labelCustomerID">Customer ID: </label>
+        <label id = "labelCustomer">Customer ID</label> <br>
+    </div>
+
+    <div id = "walletDiv">
+        <label id = "labelWalletName">Wallet Name :
+            <input type="text" required class="validated-field" id="labelWallet"  placeholder="wallet name" data-tip="Type wallet name.">
+        </label>
+    </div>
+
+    <div id = "walletDescriptionDiv">
+        <label id = "labelWalletDescription">Wallet Description :
+            <input type="text" required class="validated-field" id="labelWalletDescriptionValue" placeholder="wallet description"  data-tip="Type description.">
+        </label>
+    </div>
+
+    <div id = "buttonDiv">
+        <input type="submit" onclick="pressCreateButton();" value="Create">
+        <input type="button" onclick="pressHomePageButton();" value="Home Page">
+    </div>
+
+</form>
+<label id = "labelMessage"></label>
+
+</body>
+</html>

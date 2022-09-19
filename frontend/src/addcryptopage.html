@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="addcryptopage.css">
+    <script src="addcryptopage.js" defer></script>
+    <title> Cryptocurrency Wallet Service </title>
+</head>
+<body>
+<form id = "addCryptoForm">
+    <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+    <h3 id = "pageHeader"> Add Cryptocurrency Page </h3>
+    <div id = "customerDiv">
+        <label id = "labelCustomerID">Customer ID: </label>
+        <label id = "labelCustomer">Customer ID</label> <br>
+    </div>
+
+    <div id = "walletDiv">
+        <label id = "labelWalletName">Wallet Name: </label>
+        <label id = "labelWallet">Wallet Name</label>
+    </div>
+
+    <div id = "cryptoNameDiv">
+        <label id = "labelCryptoName">Crypto Name:
+            <input type="text" required class="validated-field" id="labelCrypto" placeholder="crypto name" data-tip="Type crypto name.">
+        </label>
+    </div>
+
+    <div id = "cryptoDescriptionDiv">
+        <label id = "labelCryptoDescription">Crypto Description :
+            <input type="text" required class="validated-field" id="labelCryptoDescriptionValue"  placeholder="crypto description" data-tip="Type crypto description.">
+        </label>
+    </div>
+
+    <div id = "cryptoAmountDiv">
+        <label id = "labelCryptoAmount">Crypto Amount :
+            <input type="text" required class="validated-field" id="labelAmountValue" placeholder="crypto amount"  data-tip="Type crypto amount.">
+        </label>
+    </div>
+
+    <ul id="cryptos">
+    </ul>
+
+
+    <div id = "buttonDiv">
+        <input type="button" onclick="pressAddButton();" value="Add">
+        <input type="button" onclick="pressWalletPageButton();" value="Wallet Page">
+    </div>
+
+    <form id = "availableCryptosForm">
+        <h2 id = "availableCryptosHeader"> Available Cryptocurrencies </h2>
+        <div style="overflow-y:auto;" id = "tableDiv">
+            <table id = "cryptosTableForm">
+            </table>
+        </div>
+
+    </form>
+    <label id = "labelMessage"></label>
+
+</form>
+
+
+
+</body>
+</html>

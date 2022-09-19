@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="homepage.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="homepage.js" defer></script>
+    <title>Cryptocurrency Wallet Service</title>
+</head>
+
+<body>
+    <form id = "homeForm">
+        <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+        <h3 id = "pageHeader"> Home Page </h3>
+        <div id = "labelDiv">
+            <label>Customer ID: </label>
+            <label id = "labelCustomer">Customer ID</label>
+        </div>
+        <div style="overflow-y:auto;" id = "tableDiv">
+            <table id = "walletTable">
+            </table>
+        </div>
+
+        <div id = "buttonDiv">
+            <input type="button" onclick="pressCreateButton();" value="Create">
+            <input type="button" onclick="pressLoginPageButton();" value="Login Page">
+        </div>
+    </form>
+    <label id = "labelMessage"></label>
+
+</body>
+</html>

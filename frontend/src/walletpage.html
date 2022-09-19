@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="walletpage.css">
+    <script src="walletpage.js" defer></script>
+    <title> Cryptocurrency Wallet Service </title>
+</head>
+<body>
+    <form id = "homeForm">
+        <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+        <h3 id = "pageHeader"> Wallet Page </h3>
+        <div id = "customerDiv">
+            <label id = "labelCustomerID">Customer ID: </label>
+            <label id = "labelCustomer">Customer ID</label> <br>
+        </div>
+
+        <div id = "walletDiv">
+            <label id = "labelWalletName">Wallet Name: </label>
+            <label id = "labelWallet">Wallet Name</label>
+        </div>
+
+        <div id = "walletDescriptionDiv">
+            <label id = "labelWalletDescription">Wallet Description :
+                <input type="text" required class="validated-field" id="labelWalletDescriptionValue" data-tip="Type description.">
+            </label>
+            <input type="submit" onclick="pressUpdateButton();" value="Update">
+        </div>
+
+        <div id = "cryptoCountDiv">
+            <label id = "cryptosCountLabel">Cryptos Count: </label>
+            <label id = "cryptosCountValueLabel">Cryptos Count </label>
+        </div>
+
+        <div id = "cryptoCostDiv">
+            <label id = "cryptosCostLabel">Cryptos Cost: </label>
+            <label id = "cryptosCostValueLabel">Cryptos Cost </label>
+        </div>
+
+        <div style="overflow-y:auto;" id = "tableDiv">
+            <table id = "cryptosTableForm">
+            </table>
+        </div>
+
+
+        <div id = "buttonDiv">
+            <input type="button" onclick="pressAddButton();" value="Add Crypto">
+            <input type="button" onclick="pressHomePageButton();" value="Home Page">
+        </div>
+
+    </form>
+    <label id = "labelMessage"></label>
+</body>
+</html>

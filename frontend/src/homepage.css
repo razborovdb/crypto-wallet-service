@@ -1,0 +1,62 @@
+
+
+#homeForm {
+  height: 400px;
+  width: 600px;
+  background-color: powderblue;
+  border: 2px solid blue;
+  border-radius: 4px;
+}
+
+
+#formHeader {
+  background-color: powderblue;
+  color: black;
+  padding-top: 0px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#pageHeader {
+  background-color: powderblue;
+  color: black;
+  padding-top: 0px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#labelDiv {
+  background-color: powderblue;
+  color: black;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#buttonDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+#tableDiv {
+  height: 220px;
+  width: 600px;
+}
+
+
+#walletTable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top: 10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+td, th {
+  border: 1px solid blue;
+  text-align: left;
+  padding: 8px;
+}
+
+
+

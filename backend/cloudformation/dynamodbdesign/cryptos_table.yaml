@@ -1,0 +1,23 @@
+Resources:
+  CryptosTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      "AttributeDefinitions":
+        - "AttributeName": "cryptoName"
+          "AttributeType": "S"
+        - "AttributeName": "cryptoCost"
+          "AttributeType": "N"
+      "KeySchema":
+        - "AttributeName": "cryptoName"
+          "KeyType": "HASH"
+      BillingMode: PAY_PER_REQUEST
+      TableName: "cryptocurrency"
+      GlobalSecondaryIndexes:
+        - IndexName: cryptocurrencyIndex
+          KeySchema:
+            - AttributeName: "cryptoCost"
+              KeyType: "HASH"
+            - AttributeName: "cryptoName"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"

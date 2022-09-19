@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="updatecryptoinwalletpage.css">
+    <script src="updatecryptoinwalletpage.js" defer></script>
+    <title> Cryptocurrency Wallet Service </title>
+</head>
+<body>
+    <form id = "updateCryptoForm">
+        <h2 id = "formHeader"> Cryptocurrency Wallet Service </h2>
+
+        <h3 id = "pageHeader"> Update Cryptocurrency In Wallet Page </h3>
+        <div id = "customerDiv">
+            <label id = "labelCustomerID">Customer ID: </label>
+            <label id = "labelCustomer">Customer ID</label> <br>
+        </div>
+
+        <div id = "walletDiv">
+            <label id = "labelWalletName">Wallet Name: </label>
+            <label id = "labelWallet">Wallet Name</label>
+        </div>
+
+        <div id = "cryptoNameDiv">
+            <label id = "labelCryptoName">Crypto Name: </label>
+            <label id = "labelCrypto">Crypto Name</label>
+        </div>
+
+        <div id = "cryptoDescriptionDiv">
+            <label id = "labelCryptoDescription">Crypto Description :
+                <input type="text" required class="validated-field" id="labelCryptoDescriptionValue" data-tip="Type crypto description.">
+            </label>
+        </div>
+
+        <div id = "cryptoAmountDiv">
+            <label id = "labelCryptoAmount">Crypto Amount :
+                <input type="text" required class="validated-field" id="labelAmountValue" data-tip="Type crypto amount.">
+            </label>
+        </div>
+
+        <ul id="cryptos">
+        </ul>
+
+
+        <div id = "buttonDiv">
+            <input type="button" onclick="pressUpdateButton();" value="Update">
+            <input type="button" onclick="pressWalletPageButton();" value="Wallet Page">
+        </div>
+
+    </form>
+    <label id = "labelMessage"></label>
+</body>
+</html>

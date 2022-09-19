@@ -1,0 +1,618 @@
+openapi: 3.0.3
+info:
+  title: CryptocurrencyWalletService
+  version: 1.0.0
+security:
+  - apiKeyAuth: []
+servers:
+  - url: https://c56ip1t5m3.execute-api.us-west-2.amazonaws.com/beta
+    description: Production server
+
+paths:
+  /availablecryptos:
+    get:
+      description: "This is used to view all available cryptocurrencies greater than greaterThan parameter"
+      parameters:
+        - name: greaterThan
+          in: query
+          required: true
+          schema: 
+            type: number
+            example: "0.0"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Cryptocurrency"
+                example: [
+                  {
+                    "cryptoName": "ETH",
+                    "cryptoDescription": "Ethereum",
+                    "cryptoAmount": 1,
+                    "cryptoCost": 1609.16
+                  },
+                  {
+                    "cryptoName": "BTC",
+                    "cryptoDescription": "Bitcoin",
+                    "cryptoAmount": 1,
+                    "cryptoCost": 20618.34
+                  },
+                  {
+                    "cryptoName": "ETC",
+                    "cryptoDescription": "Ethereum Classic",
+                    "cryptoAmount": 1,
+                    "cryptoCost": 36.118
+                  },
+                  {
+                    "cryptoName": "LTC",
+                    "cryptoDescription": "Litecoin",
+                    "cryptoAmount": 1,
+                    "cryptoCost": 61.045
+                  }
+                ]
+
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+  /{customerId}/{walletName}:
+    post:
+      description: "This is used to create a new cryptocurrency wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletDescription'
+            example: {
+              "walletDescription": "cryptocurrency for a house"
+            }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a house",
+                  "cryptosCount": 0,
+                  "cryptosCost": 0,
+                  "cryptocurrenciesList": []
+                }
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+    get:
+      description: "This is used to get a cryptocurrency wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a house",
+                  "cryptosCount": 0,
+                  "cryptosCost": 0,
+                  "cryptocurrenciesList": []
+                }
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+    put:
+      description: "This is used to update a cryptocurrency wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletDescription'
+            example: {
+              "walletDescription": "cryptocurrency for a huge house"
+            }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a huge house",
+                  "cryptosCount": 0,
+                  "cryptosCost": 0,
+                  "cryptocurrenciesList": []
+                }
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+  /{customerId}/{walletName}/cryptos/{cryptoName}:
+    post:
+      description: "This is used to add a new cryptocurrency to a wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+        - name: cryptoName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ETH"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CryptoBody'
+            example: {
+              "cryptoDescription": "Robinhood",
+              "cryptoAmount": "123"
+            }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a house",
+                  "cryptosCount": 1,
+                  "cryptosCost": 197926.68,
+                  "cryptocurrenciesList": [
+                    {
+                      "cryptoName": "ETH",
+                      "cryptoDescription": "TradeStation",
+                      "cryptoAmount": 123,
+                      "cryptoCost": 197926.68
+                    }
+                  ]
+                }
+
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+    put:
+      description: "This is used to update a cryptocurrency in a wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+        - name: cryptoName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ETH"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CryptoBody'
+            example: {
+              "cryptoDescription": "Robinhood",
+              "cryptoAmount": "123"
+            }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a house",
+                  "cryptosCount": 1,
+                  "cryptosCost": 198926.68,
+                  "cryptocurrenciesList": [
+                    {
+                      "cryptoName": "ETH",
+                      "cryptoDescription": "Robinhood",
+                      "cryptoAmount": 150,
+                      "cryptoCost": 198926.68
+                    }
+                  ]
+                }
+
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+  /{customerId}/{walletName}/cryptos:
+    put:
+      description: "This is used to updates cryptocurrencies cost in a wallet"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "ambitiousCustomer"
+        - name: walletName
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "walletForHouse"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: {
+                  "customerId": "ambitiousCustomer",
+                  "walletName": "walletForHouse",
+                  "walletDescription": "cryptocurrencies for a house",
+                  "cryptosCount": 1,
+                  "cryptosCost": 207926.68,
+                  "cryptocurrenciesList": [
+                    {
+                      "cryptoName": "ETH",
+                      "cryptoDescription": "TradeStation",
+                      "cryptoAmount": 150,
+                      "cryptoCost": 207926.68
+                    }
+                  ]
+                }
+
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+  /{customerId}:
+    get:
+      description: "This is used to view all wallets for given customer"
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema: 
+            type: string
+            example: "cryptosCustomer"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Wallet"
+                example: [
+                    {
+                      "customerId": "cryptosCustomer",
+                      "walletName": "walletForEducation",
+                      "walletDescription": "cryptocurrencies for education",
+                      "cryptosCount": 0,
+                      "cryptosCost": 0,
+                      "cryptocurrenciesList": []
+                    },
+                    {
+                      "customerId": "cryptosCustomer",
+                      "walletName": "walletForGifts",
+                      "walletDescription": "cryptocurrencies for gifts",
+                      "cryptosCount": 0,
+                      "cryptosCost": 0,
+                      "cryptocurrenciesList": []
+                    },
+                    {
+                      "customerId": "cryptosCustomer",
+                      "walletName": "walletForTravel",
+                      "walletDescription": "cryptocurrencies for travel",
+                      "cryptosCount": 0,
+                      "cryptosCost": 0,
+                      "cryptocurrenciesList": []
+                    }
+                  ]
+        "400":
+          description: "Invalid inputs"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 400,
+                  message: "Invalid inputs"
+                }
+        "500":
+          description: "Server error"
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/Error"
+                example: {
+                  code: 500,
+                  message: "Server error"
+                }
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    CryptoBody:
+      type: object
+      properties:
+        cryptoDescription:
+          type: string
+        cryptoAmount:
+          type: number
+    WalletDescription:
+      type: object
+      properties:
+        walletDescription:
+          type: string
+          
+    Cryptocurrency:
+      type: object
+      properties:
+        cryptoName:
+          type: string
+        cryptoDescription:
+          type: string
+        cryptoAmount:
+          type: number
+        cryptoCost:
+          type: number
+    Wallet:
+      type: object
+      properties:
+        customerId: 
+          type: string
+        walletName:
+          type: string
+        walletDescription:
+          type: string
+        cryptosCount:
+          type: number
+        cryptosCost: 
+          type: number
+        cryptocurrenciesList:
+          type: array
+          items:
+            $ref: "#/components/schemas/Cryptocurrency"
+    Error:
+      type: object
+      properties:
+        code: 
+          type: number
+        message:
+          type: string

@@ -1,0 +1,24 @@
+@startuml
+
+actor "Client" as client
+participant "Website Wallet page" as apiGateway
+participant "GetWalletCryptocurrenciesActivity" as getWalletCryptocurrenciesActivity
+database "wallets" as wallets
+
+title Get Wallet Cryptocurrencies
+
+client -> apiGateway : Visit wallet page
+activate apiGateway
+
+apiGateway -> getWalletCryptocurrenciesActivity : Send get cryptocurrencies request
+activate getWalletCryptocurrenciesActivity
+
+getWalletCryptocurrenciesActivity -> wallets : Load wallet
+
+wallets -> getWalletCryptocurrenciesActivity : Wallet item
+
+getWalletCryptocurrenciesActivity -> apiGateway : Map<CryptocurrencyModel>
+
+client <- apiGateway : present map of currencies
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+actor "Client" as client
+participant "Website Wallet page" as apiGateway
+participant "UpdateWalletActivity" as updateWalletActivity
+database "wallets" as wallets
+
+title Update Wallet
+
+client -> apiGateway : Submit wallet update form
+activate apiGateway
+
+apiGateway -> updateWalletActivity : Send update request
+activate updateWalletActivity
+
+updateWalletActivity -> wallets : save updates
+
+@enduml
